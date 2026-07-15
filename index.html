@@ -55,18 +55,6 @@
         </div>
     </section>
 
-    <section class="gallery" id="fotos">
-        <div class="container">
-            <h2 class="section-title">Momentos Especiais</h2>
-            <div class="photo-grid">
-                <div class="photo-item"><img src="assets/IMG_20230405_204852.jpg" alt="Filipe e Nicholli 1"></div>
-                <div class="photo-item"><img src="assets/IMG_20230412_200935.jpg" alt="Filipe e Nicholli 2"></div>
-                <div class="photo-item"><img src="assets/IMG_20230425_111949.jpg" alt="Filipe e Nicholli 3"></div>
-                <div class="photo-item"><img src="assets/P_20260523_192035.jpg" alt="Filipe e Nicholli 4"></div>
-            </div>
-        </div>
-    </section>
-
     <section class="gifts" id="presentes">
         <div class="container">
             <h2 class="section-title">Presentes</h2>
@@ -84,6 +72,41 @@
             </div>
         </div>
     </section>
+
+    <section class="gallery" id="fotos">
+        <div class="container">
+            <h2 class="section-title">Momentos Especiais</h2>
+            <div class="carousel-wrapper">
+                <button class="carousel-nav-btn prev-btn" aria-label="Slide anterior">&#10094;</button>
+                <div class="carousel-track">
+                    <div class="photo-item"><img src="assets/foto1.jpg" alt="Nicholli e Filipe 1"></div>
+                    <div class="photo-item"><img src="assets/foto2.jpg" alt="Nicholli e Filipe 2"></div>
+                    <div class="photo-item"><img src="assets/foto3.jpg" alt="Nicholli e Filipe 3"></div>
+                    <div class="photo-item"><img src="assets/foto4.jpg" alt="Nicholli e Filipe 4"></div>
+                    <div class="photo-item"><img src="assets/foto5.jpg" alt="Nicholli e Filipe 5"></div>
+                    <div class="photo-item"><img src="assets/foto6.jpg" alt="Nicholli e Filipe 6"></div>
+                    <div class="photo-item"><img src="assets/foto7.jpg" alt="Nicholli e Filipe 7"></div>
+                    <div class="photo-item"><img src="assets/foto8.jpg" alt="Nicholli e Filipe 8"></div>
+                    <div class="photo-item"><img src="assets/foto9.jpg" alt="Nicholli e Filipe 9"></div>
+                    <div class="photo-item"><img src="assets/foto10.jpg" alt="Nicholli e Filipe 10"></div>
+                    <div class="photo-item"><img src="assets/foto11.jpg" alt="Nicholli e Filipe 11"></div>
+                    <div class="photo-item"><img src="assets/foto12.jpg" alt="Nicholli e Filipe 12"></div>
+                    <div class="photo-item"><img src="assets/foto13.jpg" alt="Nicholli e Filipe 13"></div>
+                    <div class="photo-item"><img src="assets/foto14.jpg" alt="Nicholli e Filipe 14"></div>
+                    <div class="photo-item"><img src="assets/foto15.jpg" alt="Nicholli e Filipe 15"></div>
+                    <div class="photo-item"><img src="assets/foto16.jpg" alt="Nicholli e Filipe 16"></div>
+                    <div class="photo-item"><img src="assets/foto17.jpg" alt="Nicholli e Filipe 17"></div>
+                    <div class="photo-item"><img src="assets/foto18.jpg" alt="Nicholli e Filipe 18"></div>
+                    <div class="photo-item"><img src="assets/foto19.jpg" alt="Nicholli e Filipe 19"></div>
+                    <div class="photo-item"><img src="assets/foto20.jpg" alt="Nicholli e Filipe 20"></div>
+                    <div class="photo-item"><img src="assets/foto21.jpg" alt="Nicholli e Filipe 21"></div>
+                    <div class="photo-item"><img src="assets/foto22.jpg" alt="Nicholli e Filipe 22"></div>
+                </div>
+                <button class="carousel-nav-btn next-btn" aria-label="Próximo slide">&#10095;</button>
+            </div>
+        </div>
+    </section>
+
 
     <footer>
         <p>&copy; 2026 Nicholli Menezes & Filipe Caldas. Feito com amor.</p>
@@ -112,5 +135,14 @@
         setInterval(updateCountdown, 1000);
         updateCountdown();
     </script>
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog">
+        <button class="lightbox-close" aria-label="Fechar">&times;</button>
+        <div class="lightbox-content">
+            <button class="lightbox-nav lightbox-prev" aria-label="Foto anterior">&#10094;</button>
+            <img id="lightbox-img" src="" alt="Momentos Especiais Ampliado">
+            <button class="lightbox-nav lightbox-next" aria-label="Próxima foto">&#10095;</button>
+        </div>
+    </div>
 </body>
 </html>
