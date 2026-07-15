@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nicholli Menezes & Filipe Caldas | O Casamento</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Parisienne&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="icon" type="image/jpeg" href="assets/favicon.jpg">
+</head>
+<body>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>
+                <span style="white-space: nowrap;">Nicholli Menezes</span>
+                <span class="ampersand">&amp;</span>
+                <span style="white-space: nowrap;">Filipe Caldas</span>
+            </h1>
+            <p class="subtitle">Celebrando o Amor</p>
+            <div class="divider"></div>
+            
+            <div class="countdown-container">
+                <div class="countdown-item">
+                    <span class="countdown-val" id="days">00</span>
+                    <span class="countdown-lbl">dias</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-val" id="hours">00</span>
+                    <span class="countdown-lbl">horas</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-val" id="minutes">00</span>
+                    <span class="countdown-lbl">minutos</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-val" id="seconds">00</span>
+                    <span class="countdown-lbl">segundos</span>
+                </div>
+            </div>
+            
+            <p class="date">13 | SETEMBRO | 2026</p>
+        </div>
+    </section>
+
+    <section class="story" id="nossa-historia">
+        <div class="container">
+            <h2 class="section-title">Nossa História</h2>
+            <div class="story-text">
+                <p>O que começou como um simples encontro, transformou-se em uma jornada inesquecível. Entre risos compartilhados, sonhos construídos e um apoio mútuo constante, descobrimos que a felicidade é muito mais doce quando vivida a dois.</p>
+                <p>Nicholli e Filipe encontraram um no outro não apenas um parceiro, mas um lar. Cada momento que passamos juntos nos trouxe até aqui, e mal podemos esperar para começar este novo capítulo de nossas vidas cercados por quem amamos.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery" id="fotos">
+        <div class="container">
+            <h2 class="section-title">Momentos Especiais</h2>
+            <div class="photo-grid">
+                <div class="photo-item"><img src="assets/IMG_20230405_204852.jpg" alt="Filipe e Nicholli 1"></div>
+                <div class="photo-item"><img src="assets/IMG_20230412_200935.jpg" alt="Filipe e Nicholli 2"></div>
+                <div class="photo-item"><img src="assets/IMG_20230425_111949.jpg" alt="Filipe e Nicholli 3"></div>
+                <div class="photo-item"><img src="assets/P_20260523_192035.jpg" alt="Filipe e Nicholli 4"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gifts" id="presentes">
+        <div class="container">
+            <h2 class="section-title">Presentes</h2>
+            <div class="gift-content">
+                <p>Nossa maior alegria é compartilhar este dia com você! Mas se você deseja nos presentear, criamos uma forma prática para nos ajudar a construir nosso novo lar ou realizar nossa tão sonhada viagem de lua de mel.</p>
+                <div class="pix-card">
+                    <h3>Chave PIX (E-mail)</h3>
+                    <p class="pix-key">nicholli.menezes@gmail.com</p>
+                    <div class="qr-code">
+                        <img src="assets/qrcode.png" alt="QR Code PIX">
+                    </div>
+                    <button class="copy-btn" onclick="copyPix()">Copiar Chave PIX</button>
+                </div>
+                <p class="thanks-msg">Qualquer gesto de carinho será guardado em nossos corações!</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Nicholli Menezes & Filipe Caldas. Feito com amor.</p>
+    </footer>
+
+    <script src="assets/script.js"></script>
+    <script>
+        const targetDate = new Date("September 13, 2026 16:00:00").getTime();
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+            if (distance < 0) {
+                document.querySelector(".countdown-container").innerHTML = "<p style='grid-column: span 4; font-size: 1.2rem; font-weight: 500; color: #fff;'>O Grande Dia Chegou!</p>";
+                return;
+            }
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = String(days).padStart(2, '0');
+            document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+            document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+            document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>

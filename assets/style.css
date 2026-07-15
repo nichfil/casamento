@@ -1,0 +1,323 @@
+:root {
+    --primary-color: #faf7f2; /* Warm Ivory */
+    --secondary-color: #f7e7e6; /* Blush Pink */
+    --accent-color: #798e79; /* Soft Sage Green */
+    --text-color: #4a544a; /* Olive Dark Charcoal */
+    --title-font: 'Parisienne', cursive;
+    --heading-font: 'Playfair Display', serif;
+    --body-font: 'Outfit', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--body-font);
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--primary-color);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+h1, h2, h3 {
+    font-family: var(--heading-font);
+    font-weight: 400;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('banner3.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    position: relative;
+}
+
+.hero-content {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    padding: 40px 50px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 24px; /* Organic round shape */
+    animation: fadeIn 2s ease-out;
+    max-width: 480px;
+    width: 90%;
+}
+
+.hero h1 {
+    font-family: var(--title-font); /* Cursive Parisienne for the names */
+    font-size: 3.5rem;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.1;
+}
+
+.hero h1 span {
+    display: block;
+}
+
+.hero h1 .ampersand {
+    font-size: 2.2rem;
+    margin: 2px 0;
+    color: var(--secondary-color);
+}
+
+.hero .subtitle {
+    font-family: var(--body-font);
+    font-size: 1rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #f7e7e6;
+    margin-top: 10px;
+    font-weight: 400;
+}
+
+.hero .divider {
+    width: 50px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.5);
+    margin: 15px auto;
+}
+
+/* Countdown Timer */
+.countdown-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 20px auto;
+}
+
+.countdown-item {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    padding: 10px 5px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.countdown-val {
+    font-family: var(--heading-font);
+    font-size: 1.4rem;
+    font-weight: 500;
+    display: block;
+    color: #fff;
+}
+
+.countdown-lbl {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 400;
+}
+
+.hero .date {
+    font-size: 1.1rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+    margin-top: 10px;
+}
+
+/* Section Title */
+.section-title {
+    text-align: center;
+    font-size: 2.4rem;
+    margin-bottom: 50px;
+    font-family: var(--heading-font);
+    color: var(--accent-color);
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: '✿'; /* Tiny botanical flower separator */
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+}
+
+/* Our Story */
+.story {
+    background-color: var(--secondary-color);
+}
+
+.story .container {
+    background-color: #fff;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(121, 142, 121, 0.05);
+    padding: 60px 40px;
+}
+
+.story-text {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.story-text p {
+    margin-bottom: 20px;
+}
+
+.story-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* Gallery */
+.gallery {
+    background-color: var(--primary-color);
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+}
+
+.photo-item {
+    overflow: hidden;
+    border-radius: 20px; /* Highly rounded corners */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+    height: 300px;
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.photo-item:hover img {
+    transform: scale(1.06);
+}
+
+/* Gifts Section */
+.gifts {
+    background-color: var(--primary-color);
+}
+
+.gift-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.pix-card {
+    background: #fff;
+    padding: 35px;
+    border-radius: 24px; /* Matches botanical design */
+    box-shadow: 0 10px 30px rgba(121, 142, 121, 0.06);
+    margin: 40px auto;
+    max-width: 400px;
+    border: 1px solid rgba(121, 142, 121, 0.1);
+}
+
+.pix-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    color: var(--accent-color);
+    font-family: var(--heading-font);
+}
+
+.pix-key {
+    font-weight: 500;
+    font-size: 1.05rem;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.qr-code {
+    margin: 20px 0;
+}
+
+.qr-code img {
+    max-width: 180px;
+    width: 100%;
+    height: auto;
+    border: 6px solid #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+}
+
+.copy-btn {
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-family: var(--body-font);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.copy-btn:hover {
+    background-color: #617361;
+    transform: translateY(-2px);
+}
+
+.thanks-msg {
+    font-style: italic;
+    margin-top: 20px;
+    color: #778477;
+}
+
+/* Footer */
+footer {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: var(--secondary-color);
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+    .hero-content {
+        padding: 30px 20px;
+    }
+    .countdown-container {
+        gap: 8px;
+    }
+    .countdown-val {
+        font-size: 1.1rem;
+    }
+    .countdown-lbl {
+        font-size: 0.55rem;
+    }
+    .story .container {
+        padding: 40px 20px;
+    }
+}
