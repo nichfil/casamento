@@ -123,35 +123,36 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         carouselPrevBtn.addEventListener('click', () => {
-            carouselTrack.scrollBy({
-                left: -getScrollAmount(),
-                behavior: 'smooth'
-            });
+            const scrollLeft = carouselTrack.scrollLeft;
+            if (scrollLeft <= 5) {
+                const maxScrollLeft = carouselTrack.scrollWidth - carouselTrack.clientWidth;
+                carouselTrack.scrollTo({
+                    left: maxScrollLeft,
+                    behavior: 'smooth'
+                });
+            } else {
+                carouselTrack.scrollBy({
+                    left: -getScrollAmount(),
+                    behavior: 'smooth'
+                });
+            }
         });
 
         carouselNextBtn.addEventListener('click', () => {
-            carouselTrack.scrollBy({
-                left: getScrollAmount(),
-                behavior: 'smooth'
-            });
-        });
-        
-        // Disable/enable arrows based on scroll bounds
-        const toggleArrows = () => {
             const scrollLeft = carouselTrack.scrollLeft;
             const maxScrollLeft = carouselTrack.scrollWidth - carouselTrack.clientWidth;
-            
-            carouselPrevBtn.style.opacity = scrollLeft <= 1 ? '0.3' : '1';
-            carouselPrevBtn.style.pointerEvents = scrollLeft <= 1 ? 'none' : 'auto';
-            
-            carouselNextBtn.style.opacity = scrollLeft >= maxScrollLeft - 1 ? '0.3' : '1';
-            carouselNextBtn.style.pointerEvents = scrollLeft >= maxScrollLeft - 1 ? 'none' : 'auto';
-        };
-        
-        carouselTrack.addEventListener('scroll', toggleArrows);
-        window.addEventListener('resize', toggleArrows);
-        // Initial check after rendering
-        setTimeout(toggleArrows, 300);
+            if (scrollLeft >= maxScrollLeft - 5) {
+                carouselTrack.scrollTo({
+                    left: 0,
+                    behavior: 'smooth'
+                });
+            } else {
+                carouselTrack.scrollBy({
+                    left: getScrollAmount(),
+                    behavior: 'smooth'
+                });
+            }
+        });
     }
 });
 
