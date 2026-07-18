@@ -35,6 +35,16 @@ document.addEventListener('DOMContentLoaded', () => {
     
     let currentIndex = 0;
 
+    // Image load / error handlers
+    lightboxImg.addEventListener('load', () => {
+        lightbox.classList.remove('loading');
+        lightboxImg.classList.add('loaded');
+    });
+
+    lightboxImg.addEventListener('error', () => {
+        lightbox.classList.remove('loading');
+    });
+
     const showImage = (index) => {
         if (index < 0) {
             currentIndex = galleryImages.length - 1;
@@ -44,31 +54,42 @@ document.addEventListener('DOMContentLoaded', () => {
             currentIndex = index;
         }
         
-        // Smooth transition effect
-        lightboxImg.style.transform = 'scale(0.95)';
-        lightboxImg.style.opacity = '0';
+        // Hide the current image and show loader
+        lightboxImg.classList.remove('loaded');
+        lightbox.classList.add('loading');
         
+        // Wait briefly for the fade-out to finish before changing the source
         setTimeout(() => {
             lightboxImg.src = galleryImages[currentIndex].getAttribute('data-full') || galleryImages[currentIndex].src;
             lightboxImg.alt = galleryImages[currentIndex].alt;
-            lightboxImg.style.transform = 'scale(1)';
-            lightboxImg.style.opacity = '1';
         }, 150);
     };
 
     const openLightbox = (index) => {
         currentIndex = index;
+        
+        // Prepare loading states
+        lightboxImg.classList.remove('loaded');
+        lightbox.classList.add('loading');
+        
         lightboxImg.src = galleryImages[currentIndex].getAttribute('data-full') || galleryImages[currentIndex].src;
         lightboxImg.alt = galleryImages[currentIndex].alt;
+        
         lightbox.classList.add('active');
         lightbox.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden'; // Prevents background scroll
     };
 
     const closeLightbox = () => {
-        lightbox.classList.remove('active');
+        lightbox.classList.remove('active', 'loading');
+        lightboxImg.classList.remove('loaded');
         lightbox.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = ''; // Restores background scroll
+        
+        // Clear src after exit transition to avoid visual flash on next open
+        setTimeout(() => {
+            lightboxImg.src = '';
+        }, 400);
     };
 
     galleryImages.forEach((img, index) => {

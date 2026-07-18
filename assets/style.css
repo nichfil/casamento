@@ -592,12 +592,42 @@ footer {
     border-radius: 16px;
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
     object-fit: contain;
-    transform: scale(0.92);
+    opacity: 0;
+    transform: scale(0.95);
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
 }
 
-.lightbox.active #lightbox-img {
+#lightbox-img.loaded {
+    opacity: 1;
     transform: scale(1);
+}
+
+/* Spinner styling */
+.lightbox-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    border-top-color: var(--secondary-color); /* Blush Pink spinner track */
+    border-right-color: var(--accent-color); /* Sage Green accents */
+    animation: lightbox-spin 0.8s linear infinite;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 10050;
+}
+
+.lightbox.loading .lightbox-spinner {
+    opacity: 1;
+}
+
+@keyframes lightbox-spin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 .lightbox-close {
@@ -623,7 +653,6 @@ footer {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 3rem;
     color: rgba(255, 255, 255, 0.6);
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -644,6 +673,39 @@ footer {
     background: rgba(255, 255, 255, 0.25);
     border-color: rgba(255, 255, 255, 0.3);
     transform: translateY(-50%) scale(1.08);
+}
+
+/* Nav Icons styles and micro-interaction animations */
+.lightbox-nav-icon {
+    width: 28px;
+    height: 28px;
+    stroke: currentColor;
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.lightbox-prev:hover .lightbox-nav-icon {
+    transform: translateX(-2px);
+}
+
+.lightbox-next:hover .lightbox-nav-icon {
+    transform: translateX(2px);
+}
+
+.carousel-nav-icon {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.prev-btn:hover .carousel-nav-icon {
+    transform: translateX(-2px);
+}
+
+.next-btn:hover .carousel-nav-icon {
+    transform: translateX(2px);
 }
 
 .lightbox-prev {
@@ -673,8 +735,11 @@ footer {
     .lightbox-nav {
         width: 45px;
         height: 45px;
-        font-size: 1.8rem;
         background: rgba(0, 0, 0, 0.4);
+    }
+    .lightbox-nav-icon {
+        width: 20px;
+        height: 20px;
     }
     .lightbox-prev {
         left: 10px;
