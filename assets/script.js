@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         lightboxImg.style.opacity = '0';
         
         setTimeout(() => {
-            lightboxImg.src = galleryImages[currentIndex].src;
+            lightboxImg.src = galleryImages[currentIndex].getAttribute('data-full') || galleryImages[currentIndex].src;
             lightboxImg.alt = galleryImages[currentIndex].alt;
             lightboxImg.style.transform = 'scale(1)';
             lightboxImg.style.opacity = '1';
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const openLightbox = (index) => {
         currentIndex = index;
-        lightboxImg.src = galleryImages[currentIndex].src;
+        lightboxImg.src = galleryImages[currentIndex].getAttribute('data-full') || galleryImages[currentIndex].src;
         lightboxImg.alt = galleryImages[currentIndex].alt;
         lightbox.classList.add('active');
         lightbox.setAttribute('aria-hidden', 'false');
