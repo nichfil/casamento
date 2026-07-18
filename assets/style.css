@@ -295,9 +295,158 @@ h1, h2, h3 {
     transform: scale(1.06);
 }
 
+/* Event Section */
+.event {
+    background-color: var(--primary-color);
+}
+
+.event-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.event-card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(121, 142, 121, 0.05);
+    border: 1px solid rgba(121, 142, 121, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(121, 142, 121, 0.12);
+}
+
+.event-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+    color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.event-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.event-card h3 {
+    font-size: 1.6rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    font-family: var(--heading-font);
+}
+
+.event-detail {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+.event-address {
+    font-size: 0.95rem;
+    color: #778477;
+    margin-bottom: 25px;
+}
+
+.maps-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--accent-color);
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-family: var(--body-font);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin-top: auto;
+}
+
+.maps-btn:hover {
+    background-color: #617361;
+    transform: translateY(-2px);
+}
+
+.btn-arrow {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.2s ease;
+}
+
+.maps-btn:hover .btn-arrow {
+    transform: translateX(4px);
+}
+
+.event-dress-desc {
+    font-size: 1.05rem;
+    margin-bottom: 25px;
+    color: var(--text-color);
+    max-width: 320px;
+}
+
+.dress-tips {
+    display: flex;
+    gap: 20px;
+    text-align: left;
+    width: 100%;
+}
+
+.dress-tip-col {
+    flex: 1;
+    background: var(--primary-color);
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(121, 142, 121, 0.05);
+}
+
+.dress-tip-col h4 {
+    font-family: var(--heading-font);
+    color: var(--accent-color);
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.dress-tip-col p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+    .event-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .event-card {
+        padding: 30px 20px;
+    }
+    
+    .dress-tips {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
 /* Gifts Section */
 .gifts {
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
 }
 
 .gift-content {
